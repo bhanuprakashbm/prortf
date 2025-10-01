@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Redirecting...</title>
+    <script>
+        sessionStorage.redirect = location.href;
+    </script>
+    <meta http-equiv="refresh" content="0;URL='https://bhanuprakashbm.github.io/portfolio/'">
+</head>
+
+<body>
+    <h1>Page Not Found</h1>
+    <p>Redirecting to <a href="https://bhanuprakashbm.github.io/portfolio/">homepage</a>...</p>
+    <!-- Handle redirects from 404 page -->
+    <script>
+        (function () {
+            // Redirect from 404.html
+            var redirect = sessionStorage.redirect;
+            delete sessionStorage.redirect;
+            if (redirect && redirect != location.href) {
+                history.replaceState(null, null, redirect.replace(/https:\/\/bhanuprakashbm\.github\.io\/portfolio\//, '/'));
+            }
+        })();
+    </script>
+</body>
+
+</html>
